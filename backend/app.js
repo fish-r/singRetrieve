@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
+const homeRoutes = require('./routes/home')
 
 port = 8080
 const app = express()
@@ -12,6 +13,8 @@ app.use(cors())
 app.get('/', (req, res) => {
     res.json({ msg: "welcome" })
 })
+
+app.use(homeRoutes)
 
 const users = [
     { id: 1, username: 'abc', password: '123' },
@@ -34,7 +37,6 @@ app.post('/login', (req, res) => {
         const token = jwt.sign({ id: user.id, username: user.username }, process.env.SECRET, {
             expiresIn: '30m',
         });
-        console.log(token)
         res.status(200).json({ token });
 
     } catch (error) {
