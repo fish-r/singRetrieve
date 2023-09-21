@@ -11,8 +11,16 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
-
 app.use(homeRoutes)
+
+app.use((req, res, next) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.setHeader('Surrogate-Control', 'no-store');
+    next();
+});
+
 
 // returns a jwt for authentication
 app.post('/api/login', (req, res) => {
@@ -34,7 +42,7 @@ app.post('/api/login', (req, res) => {
         });
         console.log("Successful login, token set.")
         console.log(token)
-        res.status(200).setHeader({ "authorization": token }).redirect('/home')
+        res.status(200).json({ "token": token })
 
     } catch (error) {
         res.status(500).send({
@@ -43,16 +51,6 @@ app.post('/api/login', (req, res) => {
     }
 
 });
-
-// disable caching
-app.use((req, res, next) => {
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-    res.setHeader('Pragma', 'no-cache');
-    res.setHeader('Expires', '0');
-    res.setHeader('Surrogate-Control', 'no-store');
-    next();
-});
-
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
