@@ -2,16 +2,14 @@ const express = require('express');
 const { getPersonData } = require('../utils/getPersonData');
 const router = express.Router()
 require('dotenv').config();
+const verifyToken = require('../middleware/verifyToken')
 
-const users = [
-    { id: 1, username: 'abc', password: '123' },
-    { id: 2, username: 'T1234567B', password: 'password2' },
-];
-
-// Login
-router.get('/home', (req, res) => {
+// get personal data when requested
+router.get('/home', (req, res, next) => {
+    console.log('Going to home dashboard')
     try {
-        const data = getPersonData()
+        const uinfin = verifyToken(req, res, next)
+        const data = getPersonData(uinfin)
         if (!data) {
             res.status(500).json({
                 "error": "Failed to get person data"
@@ -26,6 +24,5 @@ router.get('/home', (req, res) => {
     }
 
 });
-
 
 module.exports = router

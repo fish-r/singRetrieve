@@ -1,5 +1,5 @@
 // getPersonData to simulate json response from MyInfo API
-const getPersonData = () => {
+const getPersonData = (uinfin) => {
     return {
         "edulevel": {
             "lastupdated": "2023-09-15",
