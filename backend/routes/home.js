@@ -5,7 +5,7 @@ require('dotenv').config();
 const verifyToken = require('../middleware/verifyToken')
 
 // get personal data when requested
-router.get('/home', (req, res, next) => {
+router.get('/api/home', (req, res, next) => {
     console.log('Going to home dashboard')
     try {
         const uinfin = verifyToken(req, res, next)

@@ -12,14 +12,10 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.get('/', (req, res) => {
-    res.json({ msg: "welcome" })
-})
-
 app.use(homeRoutes)
 
 // returns a jwt for authentication
-app.post('/login', (req, res) => {
+app.post('/api/login', (req, res) => {
     try {
         console.log('Attemping to Login')
         const { username, password } = req.body
@@ -47,15 +43,6 @@ app.post('/login', (req, res) => {
     }
 
 });
-
-// error logger
-// app.use((err, req, res, next) => {
-//     res.status(err.status || 500);
-//     res.render('error', {
-//         message: err.message,
-//         error: err
-//     });
-// });
 
 // disable caching
 app.use((req, res, next) => {
