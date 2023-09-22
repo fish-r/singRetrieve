@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Stack from '@mui/material/Stack';
 import { useEffect, useState } from "react";
 import ReactSelect from "react-select";
 import axiosInstance from "../axios";
@@ -23,16 +24,17 @@ const RequestInfo = () => {
                             value: response.data[key]
                         })
                     }
-                    console.log(formatted)
-                    setQueryParams(formatted)
-                    console.log("query", queryParams)
+                    setInformationList(formatted)
                 }
             })
             .catch((error) => {
                 console.error(error);
             });
-    }, []) // call api to set name on login
-    const [queryParams, setQueryParams] = useState([]);
+    }, [])
+
+    const [informationList, setInformationList] = useState([]);
+    const [selected, setSelected] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const cards = [
         {
@@ -80,6 +82,17 @@ const RequestInfo = () => {
         e.currentTarget.style.transform = "scale(1)";
     };
 
+    const handleRetrieveInfo = () => {
+        if (!selected) {
+            setErrorMessage('Please select data to retrieve')
+        }
+        else {
+            const queryParams = selected.map((each) => each.value)
+            const callback_uri = `/person/?scope=${queryParams.join(' ')}`
+            window.location.pathname = `/authorise?callback_uri=${callback_uri}`;
+        }
+
+    }
     return (
         <>
             <CssBaseline>
@@ -103,7 +116,21 @@ const RequestInfo = () => {
                             preset
                         </Typography>
 
-                        <ReactSelect options={queryParams} isMulti></ReactSelect>
+                        <ReactSelect options={informationList} isMulti onChange={(val) => { setSelected(val) }}></ReactSelect>
+                        <Stack
+                            sx={{ pt: 4 }}
+                            direction="row"
+                            spacing={2}
+                            justifyContent="center"
+                        >
+                            <Button variant="contained" onClick={handleRetrieveInfo}>Retrieve</Button>
+
+                            <Button variant="outlined" onClick={() => {
+                                window.open('https://www.pdpc.gov.sg/Overview-of-PDPA/The-Legislation/Personal-Data-Protection-Act')
+                            }}>PDPA Guidelines</Button>
+                        </Stack>
+
+                        {errorMessage}
                     </Container>
 
                     <Container sx={{ py: 8 }} maxWidth="lg">
@@ -120,7 +147,6 @@ const RequestInfo = () => {
                                         }}
                                         onMouseOver={handleMouseOver}
                                         onMouseLeave={handleMouseLeave}
-                                        onClick={() => { setQueryParams(card.queryParams) }}
                                     >
                                         <CardContent sx={{ flexGrow: 1 }}>
                                             <Typography gutterBottom variant="h5" component="h2">
