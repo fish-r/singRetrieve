@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import axiosInstance from "../axios";
 
 const cards = [
   {
@@ -39,6 +40,23 @@ const handleMouseLeave = (e) => {
 };
 
 export default function Home() {
+
+  React.useEffect(() => {
+    axiosInstance
+      .get("/api/home")
+      .then((response) => {
+        if (response.data) {
+          setName(response.data.value)
+          console.log(response.data)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []) // call api to set name on login
+
+  const [name, setName] = React.useState("");
+
   return (
     <>
       <CssBaseline />
@@ -59,7 +77,7 @@ export default function Home() {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              {name}
             </Typography>
             <Typography
               variant="h5"
@@ -96,7 +114,7 @@ export default function Home() {
                   }}
                   onMouseOver={handleMouseOver}
                   onMouseLeave={handleMouseLeave}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   <CardMedia
                     component="div"

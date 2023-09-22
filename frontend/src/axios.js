@@ -4,8 +4,8 @@ const axiosInstance = axios.create({
   baseURL: "http://localhost:8080",
   timeout: 5000,
   headers: {
-    "Content-Type": "application/json", // Set default headers for all requests
-    // Add other default headers if needed
+    "Content-Type": "application/json",
+    "Authorization": sessionStorage.getItem("token")
   },
 });
 
