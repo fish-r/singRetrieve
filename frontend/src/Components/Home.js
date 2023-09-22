@@ -93,7 +93,7 @@ export default function Home() {
         <Container sx={{ py: 4 }} maxWidth="md">
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card.title} xs={12} sm={6} md={4}>
                 <Card
                   sx={{
                     height: "100%",
