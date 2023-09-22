@@ -65,8 +65,6 @@ export default function Home() {
         <Box
           sx={{
             bgcolor: "background.paper",
-            pt: 8,
-            pb: 6,
           }}
         >
           <Container maxWidth="sm">
@@ -89,18 +87,10 @@ export default function Home() {
               information, government issued documents, and even upload
               sensitive documents for easy access and safekeeping!
             </Typography>
-            {/* <Stack
-                            sx={{ pt: 4 }}
-                            direction="row"
-                            spacing={2}
-                            justifyContent="center"
-                        >
-                            <Button variant="contained">Main call to action</Button>
-                            <Button variant="outlined">Secondary action</Button>
-                        </Stack> */}
+
           </Container>
         </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
+        <Container sx={{ py: 4 }} maxWidth="md">
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
@@ -114,12 +104,13 @@ export default function Home() {
                   }}
                   onMouseOver={handleMouseOver}
                   onMouseLeave={handleMouseLeave}
-                  onClick={() => { }}
+                  onClick={() => {
+                    window.location.pathname += card.redirect; // redirect to respective pages
+                  }}
                 >
                   <CardMedia
                     component="div"
                     sx={{
-                      // 16:9
                       pt: "56.25%",
                     }}
                     image="https://source.unsplash.com/random?wallpapers"
@@ -140,18 +131,6 @@ export default function Home() {
         </Container>
       </main>
 
-      <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          This is just a prototype made for the NDI technical assessment. Kindly
-          reach out to <a href="https://github.com/fish-r">@fish-r</a> for any
-          questions.
-        </Typography>
-      </Box>
     </>
   );
 }

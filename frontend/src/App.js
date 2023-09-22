@@ -7,6 +7,7 @@ import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import RequestInfo from "./Components/RequestInfo";
+import Box from "@mui/material/Box";
 
 function App() {
   return (
@@ -28,6 +29,18 @@ function App() {
             element={<RequestInfo></RequestInfo>}
           />
         </Routes>
+        <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="text.secondary"
+            component="p"
+          >
+            This is a prototype made for the NDI technical assessment. Kindly
+            reach out to <a href="https://github.com/fish-r">@fish-r</a> for any
+            questions.
+          </Typography>
+        </Box>
       </BrowserRouter>
     </>
   );
