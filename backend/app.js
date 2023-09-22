@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
 const homeRoutes = require('./routes/home')
+const requestInfoRoutes = require('./routes/request-info')
 const getUsers = require('./utils/getUsers')
 
 
@@ -11,7 +12,6 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
-app.use(homeRoutes)
 
 app.use((req, res, next) => {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -21,6 +21,10 @@ app.use((req, res, next) => {
     next();
 });
 
+
+// routes
+app.use(homeRoutes)
+app.use(requestInfoRoutes)
 
 // returns a jwt for authentication
 app.post('/api/login', (req, res) => {
