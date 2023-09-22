@@ -83,13 +83,14 @@ const RequestInfo = () => {
     };
 
     const handleRetrieveInfo = () => {
-        if (!selected) {
+        if (selected === undefined || selected.length === 0) {
             setErrorMessage('Please select data to retrieve')
         }
         else {
             const queryParams = selected.map((each) => each.value)
             const callback_uri = `/person/?scope=${queryParams.join(' ')}`
-            window.location.pathname = `/authorise?callback_uri=${callback_uri}`;
+            // window.location.pathname = `/authorise?callback_uri=${callback_uri}`;
+            window.location.pathname = '/authorise'
         }
 
     }
@@ -115,6 +116,14 @@ const RequestInfo = () => {
                             Search, select and add particular queries below or click on a
                             preset
                         </Typography>
+                        <Typography
+                            variant="h8"
+                            align="center"
+                            color="red"
+                            paragraph
+                        >
+                            {errorMessage}
+                        </Typography>
 
                         <ReactSelect options={informationList} isMulti onChange={(val) => { setSelected(val) }}></ReactSelect>
                         <Stack
@@ -130,7 +139,6 @@ const RequestInfo = () => {
                             }}>PDPA Guidelines</Button>
                         </Stack>
 
-                        {errorMessage}
                     </Container>
 
                     <Container sx={{ py: 8 }} maxWidth="lg">

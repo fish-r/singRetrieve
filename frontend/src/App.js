@@ -8,6 +8,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import RequestInfo from "./Components/RequestInfo";
 import Box from "@mui/material/Box";
+import Authorise from "./Components/Authorise";
 
 function App() {
   return (
@@ -23,12 +24,18 @@ function App() {
         </AppBar>
         <Routes>
           <Route path="/login" element={<Login></Login>} />
+
           <Route path="/home" element={<Home></Home>} />
+
           <Route
             path="/home/request-info"
             element={<RequestInfo></RequestInfo>}
           />
+
+          <Route path="/authorise" element={<Authorise></Authorise>} />
+
         </Routes>
+
         <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
           <Typography
             variant="subtitle1"
