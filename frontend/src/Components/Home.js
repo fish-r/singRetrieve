@@ -96,7 +96,7 @@ export default function Home() {
                   }}
                   onMouseOver={handleMouseOver}
                   onMouseLeave={handleMouseLeave}
-                  onClick={() => { }}
+                  onClick={() => {}}
                 >
                   <CardMedia
                     component="div"

@@ -23,7 +23,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login></Login>} />
           <Route path="/home" element={<Home></Home>} />
-          <Route path="/home/request-info" element={<RequestInfo></RequestInfo>} />
+          <Route
+            path="/home/request-info"
+            element={<RequestInfo></RequestInfo>}
+          />
         </Routes>
       </BrowserRouter>
     </>
