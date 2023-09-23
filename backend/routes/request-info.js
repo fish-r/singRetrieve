@@ -29,7 +29,7 @@ router.get('/api/request-info', verifyTokenMiddleware, (req, res, next) => {
 
 // get list of retrievable data and mapping
 router.get('/api/request-params', verifyTokenMiddleware, (req, res, next) => {
-    console.log('Requesting for info parameters')
+    console.log('Calling /api/request-params')
     try {
         const uinfin = req.uinfin
         const data = getPersonParams(uinfin);

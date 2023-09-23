@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import Login from "./Components/Login";
 import Home from "./Components/Home";
 import AppBar from "@mui/material/AppBar";
@@ -10,6 +10,7 @@ import RequestInfo from "./Components/RequestInfo";
 import Box from "@mui/material/Box";
 import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
+import { Switch } from "@mui/material";
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
 
         {/* Routes */}
         <Routes>
+
+          <Route path="/" element={<Login></Login>} />
+
           <Route path="/login" element={<Login></Login>} />
 
           <Route path="/home" element={
@@ -36,11 +40,26 @@ function App() {
             </RouteGuard>} />
 
           <Route
-            path="/home/request-info"
-            element={<RouteGuard><RequestInfo /></RouteGuard>}
+            path="/home/request-info?"
+            element={
+              <RouteGuard
+              ><RequestInfo />
+              </RouteGuard>}
           />
 
-          <Route path="/authorise" element={<Authorise></Authorise>} />
+          <Route path="/authorise" element={
+            <RouteGuard>
+              <Authorise />
+            </RouteGuard>
+          } />
+
+          <Route
+            path="/home/request-info/sucess/:params"
+            element={
+              <RouteGuard
+              ><RequestInfo />
+              </RouteGuard>}
+          />
 
         </Routes>
 
