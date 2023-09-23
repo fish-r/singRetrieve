@@ -1,4 +1,4 @@
-import { CssBaseline, Container, Typography, CircularProgress } from "@mui/material";
+import { CssBaseline, Container, Typography, CircularProgress, Box } from "@mui/material";
 import axiosInstance from "../axios"
 import React, { useEffect, useState } from 'react';
 
@@ -42,7 +42,22 @@ const RouteGuard = (props) => {
 
     return (
         loading ? (
-            <CircularProgress />
+            <CssBaseline>
+                <main>
+                    <Box
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <CircularProgress
+                            style={{
+                                width: '100px', // Adjust the width as needed
+                                height: '100px', // Adjust the height as needed
+                            }}
+                        />
+                    </Box>
+                </main>
+            </CssBaseline>
         ) : (
 
             authed ?
