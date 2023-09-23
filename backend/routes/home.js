@@ -4,10 +4,8 @@ const verifyTokenMiddleware = require('../middleware/token-middleware');
 const router = express.Router()
 require('dotenv').config();
 
-router.use(verifyTokenMiddleware)
-
 // get personal data when requested
-router.get('/api/home', (req, res, next) => {
+router.get('/api/home', verifyTokenMiddleware, (req, res, next) => {
     console.log('Calling /api/home')
     try {
         // const uinfin = verifyToken(req, res, next)

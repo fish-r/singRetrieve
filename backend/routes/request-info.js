@@ -5,10 +5,8 @@ require('dotenv').config();
 const getPersonParams = require('../utils/getPersonParams');
 const verifyTokenMiddleware = require('../middleware/token-middleware');
 
-router.use(verifyTokenMiddleware)
-
 // get personal data when requested
-router.get('/api/request-info', (req, res, next) => {
+router.get('/api/request-info', verifyTokenMiddleware, (req, res, next) => {
     console.log('Calling /api/request-info')
     try {
         const uinfin = req.uinfin
@@ -30,9 +28,10 @@ router.get('/api/request-info', (req, res, next) => {
 });
 
 // get list of retrievable data and mapping
-router.get('/api/request-params', (req, res, next) => {
+router.get('/api/request-params', verifyTokenMiddleware, (req, res, next) => {
     console.log('Requesting for info parameters')
     try {
+        const uinfin = req.uinfin
         const data = getPersonParams(uinfin);
         if (!data) {
             res.status(500).json({
