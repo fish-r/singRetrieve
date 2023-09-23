@@ -87,7 +87,7 @@ const RequestInfo = () => {
       setErrorMessage("Please select data to retrieve");
     } else {
       const queryParams = selected.map((each) => each.value);
-      const callback_uri = `/request-info/success/scope?=${queryParams.join(
+      const callback_uri = `/request-info/success?scope=${queryParams.join(
         "+",
       )}`;
       window.location.href = `/authorise?callback_uri=${callback_uri}`;

@@ -5,7 +5,7 @@ const getPersonParams = (uinfin) => {
         'Education Level': 'edulevel',
         'Academic Qualifications': 'academicqualifications',
         'School Name': 'schoolname',
-        'Graduation Year': 'graduationyear',
+        'Graduation Year': 'gradyear',
 
         // 'Basic Personal Information': {
         'Name': 'name',

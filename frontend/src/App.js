@@ -12,6 +12,7 @@ import Login from "./Components/Login";
 import Home from "./Components/Home";
 import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
+import RequestSuccess from "./Components/RequestSuccess";
 
 function App() {
   return (
@@ -61,10 +62,10 @@ function App() {
           />
 
           <Route
-            path="/home/request-info/sucess/:params"
+            path="/request-info/success"
             element={
               <RouteGuard>
-                <RequestInfo />
+                <RequestSuccess />
               </RouteGuard>
             }
           />

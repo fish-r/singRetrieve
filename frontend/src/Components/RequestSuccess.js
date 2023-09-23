@@ -10,8 +10,34 @@ import {
   CardContent,
   Button,
 } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import axiosInstance from "../axios";
 
 const RequestSuccess = () => {
+
+  const location = useLocation();
+  const [data, setData] = useState({});
+
+  const queryParams = new URLSearchParams(location.search);
+  const scope = queryParams.get("scope");
+
+  useEffect(() => {
+    axiosInstance
+      .get(`/api/request-info?scope=${scope}`)
+      .then((response) => {
+        if (response.data) {
+          console.log(response.data)
+          setData(response.data);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+
+    console.log(data)
+  }, [])
   return (
     <>
       <CssBaseline />
@@ -39,3 +65,6 @@ const RequestSuccess = () => {
     </>
   );
 };
+
+
+export default RequestSuccess
