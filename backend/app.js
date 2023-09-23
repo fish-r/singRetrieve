@@ -4,6 +4,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken')
 const homeRoutes = require('./routes/home')
 const requestInfoRoutes = require('./routes/request-info')
+const verifyToken = require('./routes/verify-token')
 const getUsers = require('./utils/getUsers')
 
 
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 // routes
 app.use(homeRoutes)
 app.use(requestInfoRoutes)
+app.use(verifyToken)
 
 // returns a jwt for authentication
 app.post('/api/login', (req, res) => {
