@@ -4,15 +4,18 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import WebcamCapture from "./Common/WebcamCapture";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Authorise = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSimulateSuccess = () => {
     const queryParams = new URLSearchParams(location.search);
     const callback_uri = queryParams.get("callback_uri");
-    window.location.href = callback_uri;
+    navigate(callback_uri, { replace: true });
+
+    // window.location.href = callback_uri;
   };
   return (
     <>
