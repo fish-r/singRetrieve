@@ -13,8 +13,6 @@ import Home from "./Components/Home";
 import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
 
-
-
 function App() {
   return (
     <>
@@ -31,38 +29,45 @@ function App() {
 
         {/* Routes */}
         <Routes>
-
           <Route path="/" element={<Login></Login>} />
 
           <Route path="/login" element={<Login>c</Login>} />
 
-          <Route path="/home" element={
-            <RouteGuard>
-              <Home />
-            </RouteGuard>} />
+          <Route
+            path="/home"
+            element={
+              <RouteGuard>
+                <Home />
+              </RouteGuard>
+            }
+          />
 
           <Route
             path="/home/request-info?"
             element={
-              <RouteGuard
-              ><RequestInfo />
-              </RouteGuard>}
+              <RouteGuard>
+                <RequestInfo />
+              </RouteGuard>
+            }
           />
 
-          <Route path="/authorise" element={
-            <RouteGuard>
-              <Authorise />
-            </RouteGuard>
-          } />
+          <Route
+            path="/authorise"
+            element={
+              <RouteGuard>
+                <Authorise />
+              </RouteGuard>
+            }
+          />
 
           <Route
             path="/home/request-info/sucess/:params"
             element={
-              <RouteGuard
-              ><RequestInfo />
-              </RouteGuard>}
+              <RouteGuard>
+                <RequestInfo />
+              </RouteGuard>
+            }
           />
-
         </Routes>
 
         {/* footer */}

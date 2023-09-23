@@ -19,7 +19,7 @@ const Login = () => {
 
     // }
     const payload = {
-      username: "ABC",  // hardcoded to simulate 
+      username: "ABC", // hardcoded to simulate
       password: "123",
     };
     console.log(payload);

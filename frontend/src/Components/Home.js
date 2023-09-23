@@ -1,5 +1,16 @@
 import * as React from "react";
-import { Box, CssBaseline, Container, Typography, Grid, Card, CardActions, CardMedia, CardContent, Button } from "@mui/material";
+import {
+  Box,
+  CssBaseline,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardActions,
+  CardMedia,
+  CardContent,
+  Button,
+} from "@mui/material";
 
 import axiosInstance from "../axios";
 
@@ -32,20 +43,19 @@ const handleMouseLeave = (e) => {
 };
 
 export default function Home() {
-
   React.useEffect(() => {
     axiosInstance
       .get("/api/home")
       .then((response) => {
         if (response.data) {
-          setName(response.data.value)
-          console.log(response.data)
+          setName(response.data.value);
+          console.log(response.data);
         }
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []) // call api to set name on login
+  }, []); // call api to set name on login
 
   const [name, setName] = React.useState("");
 
@@ -79,7 +89,6 @@ export default function Home() {
               information, government issued documents, and even upload
               sensitive documents for easy access and safekeeping!
             </Typography>
-
           </Container>
         </Box>
         <Container sx={{ py: 4 }} maxWidth="md">
@@ -122,7 +131,6 @@ export default function Home() {
           </Grid>
         </Container>
       </main>
-
     </>
   );
 }
