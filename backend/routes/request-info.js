@@ -17,16 +17,14 @@ router.get('/api/request-info', verifyTokenMiddleware, (req, res, next) => {
             })
         }
         const scope = req.query.scope;
-        console.log(scope)
         const arr = scope.split(' ')
-        console.log(arr)
         const filtered = Object.keys(data).reduce((output, key) => {
             if (arr.includes(key)) {
                 output[key] = data[key]
             }
             return output
         }, {});
-
+        console.log(filtered)
         res.json(filtered)
     } catch (error) {
         console.log(error)

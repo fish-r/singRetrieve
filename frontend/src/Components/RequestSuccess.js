@@ -18,25 +18,32 @@ const RequestSuccess = () => {
 
   const location = useLocation();
   const [data, setData] = useState({});
-
+  const [formatted, setFormatted] = useState([])
   const queryParams = new URLSearchParams(location.search);
   const scope = queryParams.get("scope");
+
+  const formatData = (data) => {
+    console.log(data)
+    const formatted = Object.keys(data).reduce((output, key) => {
+      output[key] = data[key].value || data[key].desc || 'NA'
+      setFormatted(output)
+      return output
+    }, {})
+    return formatted;
+  }
 
   useEffect(() => {
     axiosInstance
       .get(`/api/request-info?scope=${scope}`)
       .then((response) => {
         if (response.data) {
-          console.log(response.data)
-          setData(response.data);
+          setData(formatData(response.data))
         }
       })
       .catch((error) => {
         console.error(error);
       });
 
-
-    console.log(data)
   }, [])
   return (
     <>
@@ -50,8 +57,7 @@ const RequestSuccess = () => {
         >
           <Container maxWidth="sm">
             <Typography
-              component="h1"
-              variant="h2"
+              variant="h3"
               align="center"
               color="text.primary"
               gutterBottom
@@ -60,7 +66,13 @@ const RequestSuccess = () => {
             </Typography>
           </Container>
         </Box>
-        <Container sx={{ py: 4 }} maxWidth="md"></Container>
+        <Container sx={{ py: 4 }} maxWidth="md">
+          {Object.keys(data).map((key) => (
+            <div>
+              {key}:{data[key]}
+            </div>
+          ))}
+        </Container>
       </main>
     </>
   );
