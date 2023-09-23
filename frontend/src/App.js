@@ -9,11 +9,14 @@ import Typography from "@mui/material/Typography";
 import RequestInfo from "./Components/RequestInfo";
 import Box from "@mui/material/Box";
 import Authorise from "./Components/Authorise";
+import RouteGuard from "./utils/RouteGuard";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        {/* app bar */}
         <AppBar position="relative" sx={{ mb: "5%" }}>
           <Toolbar>
             <CameraIcon sx={{ mr: 2 }} />
@@ -22,20 +25,26 @@ function App() {
             </Typography>
           </Toolbar>
         </AppBar>
+
+        {/* Routes */}
         <Routes>
           <Route path="/login" element={<Login></Login>} />
 
-          <Route path="/home" element={<Home></Home>} />
+          <Route path="/home" element={
+            <RouteGuard>
+              <Home />
+            </RouteGuard>} />
 
           <Route
             path="/home/request-info"
-            element={<RequestInfo></RequestInfo>}
+            element={<RouteGuard><RequestInfo /></RouteGuard>}
           />
 
           <Route path="/authorise" element={<Authorise></Authorise>} />
 
         </Routes>
 
+        {/* footer */}
         <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
           <Typography
             variant="subtitle1"
