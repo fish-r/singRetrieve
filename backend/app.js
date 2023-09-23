@@ -31,7 +31,7 @@ app.use(verifyToken)
 // returns a jwt for authentication
 app.post('/api/login', (req, res) => {
     try {
-        console.log('Attemping to Login')
+        console.log('Calling /api/login')
         const { username, password } = req.body
         console.log(username, password)
         if (!username || !password) {

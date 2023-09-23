@@ -11,13 +11,23 @@ router.get('/api/request-info', verifyTokenMiddleware, (req, res, next) => {
     try {
         const uinfin = req.uinfin
         const data = getPersonData(uinfin) // simulate api call to get person data
-        const params = req.params;
         if (!data) {
             res.status(500).json({
                 "error": "Failed to get person data"
             })
         }
-        res.json(data.name)
+        const scope = req.query.scope;
+        console.log(scope)
+        const arr = scope.split(' ')
+        console.log(arr)
+        const filtered = Object.keys(data).reduce((output, key) => {
+            if (arr.includes(key)) {
+                output[key] = data[key]
+            }
+            return output
+        }, {});
+
+        res.json(filtered)
     } catch (error) {
         console.log(error)
         res.status(500).send({
