@@ -1,16 +1,18 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
-import Login from "./Components/Login";
-import Home from "./Components/Home";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+
 import AppBar from "@mui/material/AppBar";
 import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import RequestInfo from "./Components/RequestInfo";
 import Box from "@mui/material/Box";
+
+import Login from "./Components/Login";
+import Home from "./Components/Home";
 import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
-import { Switch } from "@mui/material";
+
 
 
 function App() {
@@ -32,7 +34,7 @@ function App() {
 
           <Route path="/" element={<Login></Login>} />
 
-          <Route path="/login" element={<Login></Login>} />
+          <Route path="/login" element={<Login>c</Login>} />
 
           <Route path="/home" element={
             <RouteGuard>

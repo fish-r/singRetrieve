@@ -30,7 +30,6 @@ const RouteGuard = (props) => {
         axiosInstance.get('/api/verify-token')  // verify token on server side
             .then((response) => {
                 setLoading(false)
-                console.log(response)
                 if (response.status === 200) {
                     setAuthed(true)
                 }

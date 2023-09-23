@@ -88,9 +88,8 @@ const RequestInfo = () => {
         }
         else {
             const queryParams = selected.map((each) => each.value)
-            const callback_uri = `/person/?scope=${queryParams.join(' ')}`
-            // window.location.pathname = `/authorise?callback_uri=${callback_uri}`;
-            window.location.pathname = '/authorise'
+            const callback_uri = `/request-info/success/scope?=${queryParams.join('+')}`
+            window.location.href = `/authorise?callback_uri=${(callback_uri)}`
         }
 
     }
