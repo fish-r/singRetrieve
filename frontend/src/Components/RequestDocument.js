@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const RequestDocuments = () => {
+const RequestDocument = () => {
 
     const navigate = useNavigate();
     const cards = [
@@ -131,4 +131,4 @@ const RequestDocuments = () => {
     )
 }
 
-export default RequestDocuments;
+export default RequestDocument;

@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import AppBar from "@mui/material/AppBar";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import RequestInfo from "./Components/RequestInfo";
@@ -13,7 +12,7 @@ import Home from "./Components/Home";
 import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
 import RequestSuccess from "./Components/RequestSuccess";
-import RequestDocuments from "./Components/RequestDocuments";
+import RequestDocument from "./Components/RequestDocument";
 
 function App() {
   return (
@@ -22,9 +21,9 @@ function App() {
         {/* app bar */}
         <AppBar position="relative" sx={{}}>
           <Toolbar>
-            <CameraIcon sx={{ mr: 2 }} />
+
             <Typography variant="h6" color="inherit" noWrap>
-              singRetrieve
+              SingRetrieve
             </Typography>
           </Toolbar>
         </AppBar>
@@ -75,7 +74,7 @@ function App() {
             path="/home/request-document"
             element={
               <RouteGuard>
-                <RequestDocuments />
+                <RequestDocument />
               </RouteGuard>
             }
           />

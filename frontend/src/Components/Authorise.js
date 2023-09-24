@@ -14,8 +14,7 @@ const Authorise = () => {
     const queryParams = new URLSearchParams(location.search);
     const callback_uri = queryParams.get("callback_uri");
     navigate(callback_uri, { replace: true }); // use navigate to prevent backing
-
-    // window.location.href = callback_uri;
+    // find a way to stop stream
   };
   return (
     <>
