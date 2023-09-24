@@ -42,8 +42,8 @@ app.post('/api/login', (req, res) => {
         if (user.password !== password) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
-        // secret can be found in .env
-        const token = jwt.sign({ id: user.id, username: user.username }, process.env.SECRET, {
+        // secret should be stored in .env, but put here for easy testing
+        const token = jwt.sign({ id: user.id, username: user.username }, "da2b01856d18aa5a3a72a0cb76b598bd7aefc77ed6d66b2830006269a502cbc2", {
             expiresIn: '30m', // set expiry for web safety
         });
         console.log("Successful login, token set.")
