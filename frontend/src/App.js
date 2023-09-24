@@ -19,7 +19,7 @@ function App() {
     <>
       <BrowserRouter>
         {/* app bar */}
-        <AppBar position="relative" sx={{ mb: "5%" }}>
+        <AppBar position="relative" sx={{}}>
           <Toolbar>
             <CameraIcon sx={{ mr: 2 }} />
             <Typography variant="h6" color="inherit" noWrap>
@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login></Login>} />
 
-          <Route path="/login" element={<Login>c</Login>} />
+          <Route path="/login" element={<Login></Login>} />
 
           <Route
             path="/home"
