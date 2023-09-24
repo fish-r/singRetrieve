@@ -8,13 +8,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Authorise = () => {
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSimulateSuccess = () => {
     const queryParams = new URLSearchParams(location.search);
     const callback_uri = queryParams.get("callback_uri");
-    navigate(callback_uri, { replace: true }); // use navigate to prevent backing
-    // find a way to stop stream
+    // navigate(callback_uri, { replace: true }); // use navigate to prevent backing
+    window.location.href = callback_uri; // cant use useNavigate as it keeps camera running
   };
   return (
     <>
