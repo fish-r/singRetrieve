@@ -59,7 +59,7 @@ Link to video demo:
 Here are some additional notes and reflections
 - Frontend is running on ReactJs deployed on AWS S3
 - Backend is running on ExpressJs deployed on AWS EC2
-- 
+  
 ### Areas for improvement
 - Signing into the app is currently simulated (though the logic for the backend has been made)
 - In requesting for information module, the returned information is not formatted correctly
