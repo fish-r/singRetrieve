@@ -20,7 +20,7 @@ const InvalidSessionComponent = () => {
             gutterBottom
             mt="3%"
           >
-            Invalid Session, kindly { }
+            Invalid Session, kindly {}
             <a href="/login">log in</a> again.
           </Typography>
         </Container>

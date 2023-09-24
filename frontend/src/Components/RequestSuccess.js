@@ -3,7 +3,8 @@ import {
   CssBaseline,
   Container,
   Typography,
-  Grid, Stack,
+  Grid,
+  Stack,
   Button,
 } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -19,27 +20,26 @@ const RequestSuccess = () => {
   const scope = queryParams.get("scope");
 
   const formatData = (data) => {
-    console.log(data)
+    console.log(data);
     const formatted = Object.keys(data).reduce((output, key) => {
-      output[key] = data[key].value || data[key].desc || 'NA'
-      return output
-    }, {})
+      output[key] = data[key].value || data[key].desc || "NA";
+      return output;
+    }, {});
     return formatted;
-  }
+  };
 
   useEffect(() => {
     axiosInstance
       .get(`/api/request-info?scope=${scope}`)
       .then((response) => {
         if (response.data) {
-          setData(formatData(response.data))
+          setData(formatData(response.data));
         }
       })
       .catch((error) => {
         console.error(error);
       });
-
-  }, [scope])
+  }, [scope]);
   return (
     <>
       <CssBaseline />
@@ -66,17 +66,19 @@ const RequestSuccess = () => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained"
+              <Button
+                variant="contained"
                 onClick={() => {
-                  navigate('/home/request-info', { replace: true });
-                }}>
+                  navigate("/home/request-info", { replace: true });
+                }}
+              >
                 Back to Requests
               </Button>
 
               <Button
                 variant="outlined"
                 onClick={() => {
-                  navigate('/home', { replace: true });
+                  navigate("/home", { replace: true });
                 }}
               >
                 Back to home
@@ -93,19 +95,15 @@ const RequestSuccess = () => {
                 spacing={2}
                 justifyContent="left"
               >
-                <Typography variant="h5">
-                  {key}:
-                </Typography>
-                <Typography variant="h6">
-                  {data[key]}
-                </Typography>
+                <Typography variant="h5">{key}:</Typography>
+                <Typography variant="h6">{data[key]}</Typography>
               </Stack>
-            </Grid>))}
+            </Grid>
+          ))}
         </Container>
       </main>
     </>
   );
 };
 
-
-export default RequestSuccess
+export default RequestSuccess;

@@ -23,7 +23,6 @@ function App() {
         {/* app bar */}
         <AppBar position="relative" sx={{}}>
           <Toolbar>
-
             <Typography variant="h6" color="inherit" noWrap>
               SingRetrieve
             </Typography>
@@ -32,7 +31,6 @@ function App() {
 
         {/* Routes */}
         <Routes>
-
           <Route path="/login" element={<Login></Login>} />
 
           <Route
@@ -90,7 +88,6 @@ function App() {
           />
 
           <Route path="*" element={<NotFound />} />
-
         </Routes>
 
         {/* footer */}

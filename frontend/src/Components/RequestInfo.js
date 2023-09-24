@@ -42,35 +42,39 @@ const RequestInfo = () => {
       description:
         "Obtain personal information such as your Passport details, Driver's details and others.",
       params:
-        "uinfin+passportnumber+passportexpirydate+hanyupinyinname+email+birthcountry+race+sex+drivinglicense+residentialstatus+marriedname+dialect",
+        "Name, UIFIN, Sex, Partial UINFIN, Email, Dialect, Race, Mobile Number, Mail Address, Pass Expiry Date, Home Number, Residential Status, Passport Number, HanYuPinYin Alias Name, Alias Name, Pass Status, Nationality, Date of Birth, Pioneer Generation, Pass Type, Registered Address, Billing Address, HanYuPinYin Name, Passport Expiry Date, Merdeka Generation, Birth Country, Secondary Race",
     },
     {
       title: "Finance",
       description: "Retrieve your CPF contribution history or Medisave.",
       params:
-        "cpfmedishieldlife+cpfemployers+cpfbalances+cpfcontributions+cpfmonthlypayouts",
+        "NOA History,NOA, NOA History Basic, NOA Basic, CPF Dependant Protection Scheme, CPF MediShield Life, CPF Employers, CPF Balances, CPF Housing Withdrawal, CPF Investment Scheme, CPF Self Top Up Amount, CPF Current Year Tax Relief, Household Income, CPF Monthly Payouts, CPF Contributions, GST Vouchers, CPF Life, Silver Support, CPF Home Protection Scheme",
     },
     {
       title: "Family",
       description:
         "View dependents' information, marriage certificate or request for your family member's information.",
-      params: "marital+childrenbirthrecords",
+      params:
+        "Married Name,Sponsored Children Records,Divorced Date,Marriage Certificate Number,Country of Marriage,Date of Marriage,Marital,Child Birth Records",
     },
     {
       title: "Properties and Vehicles",
       description:
         "Check property information or data regarding your vehicle(s).",
-      params: "edulevel+ltavocationallicences+vehicles",
+      params:
+        "Owner, Private Housing Type, Vehicles, Vocational Licenses, HDB Type, HDB Ownership, Driving License",
     },
     {
       title: "Education",
       description: "View your academic records from official examinations.",
-      params: "academicqualifications+edulevel",
+      params:
+        "Education Level, Academic Qualifications, Graduation Year, School Name",
     },
     {
       title: "Career",
       description: "View past and present working .",
-      params: "occupation+cpfemployers",
+      params:
+        "Employment, Occupation, LTA Vocational Licenses, Employment Sector",
     },
   ];
 
@@ -168,11 +172,14 @@ const RequestInfo = () => {
                       <Typography gutterBottom variant="h5" component="h2">
                         {card.title}
                       </Typography>
-                      <Typography>{card.description}</Typography>
+                      <Typography gutterBottom color="text.secondary">
+                        {card.description}
+                      </Typography>
+                      <Typography fontSize="12px">
+                        {" "}
+                        Available data: {card.params}
+                      </Typography>
                     </CardContent>
-                    <CardActions>
-                      <Button size="small">About</Button>
-                    </CardActions>
                   </Card>
                 </Grid>
               ))}
