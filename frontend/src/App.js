@@ -13,6 +13,7 @@ import Home from "./Components/Home";
 import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
 import RequestSuccess from "./Components/RequestSuccess";
+import RequestDocuments from "./Components/RequestDocuments";
 
 function App() {
   return (
@@ -66,6 +67,15 @@ function App() {
             element={
               <RouteGuard>
                 <RequestSuccess />
+              </RouteGuard>
+            }
+          />
+
+          <Route
+            path="/home/request-document"
+            element={
+              <RouteGuard>
+                <RequestDocuments />
               </RouteGuard>
             }
           />

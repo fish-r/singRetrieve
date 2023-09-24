@@ -19,18 +19,21 @@ const cards = [
     title: "Personal Information",
     description:
       "Retrieve information that you require through a simple verification process.",
-    redirect: "/request-info",
+    redirect: "/home/request-info",
+    image: '/hdb.jpg'
   },
   {
     title: "Official Documents",
     description: "View and download copies of government issued documents.",
-    redirect: "/request-documents",
+    redirect: "/authorise?callback_uri=/home/request-document",
+    image: '/hdb.jpg'
   },
   {
     title: "Upload Private Documents",
     description:
       "Upload private documents such as a copy of your latest NRIC, birth certificates and more.",
-    redirect: "/upload-documents",
+    redirect: "/authorise?callback_uri=/home/upload-document",
+    image: '/hdb.jpg'
   },
 ];
 
@@ -49,7 +52,6 @@ export default function Home() {
       .then((response) => {
         if (response.data) {
           setName(response.data.value);
-          console.log(response.data);
         }
       })
       .catch((error) => {
@@ -69,7 +71,7 @@ export default function Home() {
             bgcolor: "background.paper",
           }}
         >
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" sx={{ mt: "2%" }}>
             <Typography
               component="h1"
               variant="h2"
@@ -106,7 +108,7 @@ export default function Home() {
                   onMouseOver={handleMouseOver}
                   onMouseLeave={handleMouseLeave}
                   onClick={() => {
-                    window.location.pathname += card.redirect; // redirect to respective pages
+                    window.location.href = card.redirect; // redirect to respective pages
                   }}
                 >
                   <CardMedia
@@ -114,7 +116,7 @@ export default function Home() {
                     sx={{
                       pt: "56.25%",
                     }}
-                    image="https://source.unsplash.com/random?wallpapers"
+                    image={card.image}
                   />
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">

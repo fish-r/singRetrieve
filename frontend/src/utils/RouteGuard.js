@@ -14,12 +14,14 @@ const InvalidSessionComponent = () => {
       <main>
         <Container maxWidth="lg">
           <Typography
-            variant="h3"
+            variant="h4"
             align="left"
-            color="text.primary"
+            color="red"
             gutterBottom
+            mt="3%"
           >
-            Invalid Session, kindly log in again.
+            Invalid Session, kindly { }
+            <a href="/login">log in</a> again.
           </Typography>
         </Container>
       </main>
@@ -52,8 +54,8 @@ const RouteGuard = (props) => {
         <Box display="flex" alignItems="center" justifyContent="center">
           <CircularProgress
             style={{
-              width: "100px", // Adjust the width as needed
-              height: "100px", // Adjust the height as needed
+              width: "100px",
+              height: "100px",
             }}
           />
         </Box>
@@ -62,7 +64,7 @@ const RouteGuard = (props) => {
   ) : authed ? (
     props.children
   ) : (
-    <InvalidSessionComponent />
+    <InvalidSessionComponent /> // Redirect to invalid session
   );
 };
 

@@ -13,7 +13,7 @@ const Authorise = () => {
   const handleSimulateSuccess = () => {
     const queryParams = new URLSearchParams(location.search);
     const callback_uri = queryParams.get("callback_uri");
-    navigate(callback_uri, { replace: true });
+    navigate(callback_uri, { replace: true }); // use navigate to prevent backing
 
     // window.location.href = callback_uri;
   };
@@ -21,7 +21,7 @@ const Authorise = () => {
     <>
       <CssBaseline>
         <main>
-          <Container maxWidth="md">
+          <Container maxWidth="md" sx={{ mt: "2%" }}>
             <Typography
               variant="h4"
               align="center"

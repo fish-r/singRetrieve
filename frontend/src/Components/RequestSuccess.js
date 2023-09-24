@@ -50,9 +50,9 @@ const RequestSuccess = () => {
             bgcolor: "background.paper",
           }}
         >
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" sx={{ mt: "2%" }}>
             <Typography
-              variant="h3"
+              variant="h4"
               align="center"
               color="text.primary"
               gutterBottom

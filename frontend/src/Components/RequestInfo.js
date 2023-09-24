@@ -97,7 +97,7 @@ const RequestInfo = () => {
     <>
       <CssBaseline>
         <main>
-          <Container maxWidth="sm">
+          <Container maxWidth="sm" sx={{ mt: "2%" }}>
             <Typography
               variant="h4"
               align="center"
