@@ -14,6 +14,7 @@ import RouteGuard from "./utils/RouteGuard";
 import RequestSuccess from "./Components/RequestSuccess";
 import RequestDocument from "./Components/RequestDocument";
 import UploadDocument from "./Components/UploadDocument";
+import NotFound from "./Components/Common/NotFound";
 
 function App() {
   return (
@@ -31,7 +32,6 @@ function App() {
 
         {/* Routes */}
         <Routes>
-          <Route path="/" element={<Login></Login>} />
 
           <Route path="/login" element={<Login></Login>} />
 
@@ -88,6 +88,8 @@ function App() {
               </RouteGuard>
             }
           />
+
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
 
