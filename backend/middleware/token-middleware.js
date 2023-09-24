@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const verifyTokenMiddleware = (req, res, next) => {
     try {
-        console.log('Verifying token')
         const headers = req.headers
         const token = headers.authorization
         if (!token) {
@@ -12,10 +11,8 @@ const verifyTokenMiddleware = (req, res, next) => {
         }
         jwt.verify(token, process.env.SECRET, (err, decoded) => {
             if (err) {
-                console.log("Failed to verify token")
                 return res.status(401).json({ message: 'Token expired or invalid' });
             }
-            console.log('Successfully verified')
             const credentials = json(decoded)
             req.uinfin = credentials.uinfin
             next()

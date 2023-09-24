@@ -6,7 +6,7 @@ const homeRoutes = require('./routes/home')
 const requestInfoRoutes = require('./routes/request-info')
 const verifyToken = require('./routes/verify-token')
 const getUsers = require('./utils/getUsers')
-
+const morgan = require('morgan')
 
 port = 8080
 const app = express()
@@ -14,6 +14,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// prevent caching
 app.use((req, res, next) => {
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     res.setHeader('Pragma', 'no-cache');
@@ -22,11 +23,17 @@ app.use((req, res, next) => {
     next();
 });
 
+// logging
+app.use(morgan('combined'));
 
 // routes
 app.use(homeRoutes)
 app.use(requestInfoRoutes)
 app.use(verifyToken)
+
+app.get('/', (req, res) => {
+    res.send('Hello world')
+})
 
 // returns a jwt for authentication
 app.post('/api/login', (req, res) => {
