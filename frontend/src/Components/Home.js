@@ -74,7 +74,7 @@ export default function Home() {
           <Container maxWidth="sm" sx={{ mt: "2%" }}>
             <Typography
               component="h1"
-              variant="h2"
+              variant="h3"
               align="center"
               color="text.primary"
               gutterBottom
@@ -125,7 +125,7 @@ export default function Home() {
                     <Typography>{card.description}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small">About</Button>
+                    <Button size="small">Retrieve</Button>
                   </CardActions>
                 </Card>
               </Grid>
