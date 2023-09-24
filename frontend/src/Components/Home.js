@@ -20,20 +20,20 @@ const cards = [
     description:
       "Retrieve information that you require through a simple verification process.",
     redirect: "/home/request-info",
-    image: '/hdb.jpg'
+    image: '/personal.svg'
   },
   {
     title: "Official Documents",
     description: "View and download copies of government issued documents.",
     redirect: "/authorise?callback_uri=/home/request-document",
-    image: '/hdb.jpg'
+    image: '/files.jpg'
   },
   {
     title: "Upload Private Documents",
     description:
       "Upload private documents such as a copy of your latest NRIC, birth certificates and more.",
     redirect: "/authorise?callback_uri=/home/upload-document",
-    image: '/hdb.jpg'
+    image: '/uploadicon.png'
   },
 ];
 
