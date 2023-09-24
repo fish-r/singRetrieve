@@ -6,7 +6,7 @@ With SingRetrieve, the average citizen can save time looking for files and keyin
 ## Quick Start
 1. Head over to http://singretrieve-bucket.s3-website-ap-southeast-2.amazonaws.com/login
 2. Click on the Singpass QR code to simulate logging in
-3. Check out the various features
+3. Check out the various features!
 4. In case the deployed version fails:
 ```
 git clone https://github.com/fish-r/singRetrieve.git
@@ -46,7 +46,7 @@ A web-based application integrated with the NDI ecosystem that allows users to r
 
 
 ## System Architecture
-![diagram](https://github.com/fish-r/singRetrieve/assets/90635118/c7dc2493-495c-4118-b69e-344cf33041ae)
+![diagram](https://github.com/fish-r/singRetrieve/assets/90635118/f1301d7e-920a-40ea-ae2f-464029751ae0)
 
 ## Wireframes and Storyboards
 Figma Link to low-fi, wireframes, user flow:
