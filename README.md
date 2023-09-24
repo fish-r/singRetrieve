@@ -40,6 +40,7 @@ A web-based application integrated with the NDI ecosystem that allows users to r
 ## Wireframes and Storyboards
 Figma Link to low-fi, wireframes, user flow:
 - https://www.figma.com/file/uW0AtCEKaOh7k8VDWhAxyB/Untitled?type=design&node-id=0%3A1&mode=design&t=yIhlJrIW7pKeJCe7-1
+
 Link to video demo:
 - https://drive.google.com/file/d/1lLBh0bQzBGty8EBwmJ7SSQX3fJNLSn4z/view?usp=sharing
 
