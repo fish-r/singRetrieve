@@ -9,7 +9,7 @@ const verifyTokenMiddleware = (req, res, next) => {
         if (!token) {
             return res.status(401).json({ message: 'Unauthorized' });
         }
-        jwt.verify(token, process.env.SECRET, (err, decoded) => {
+        jwt.verify(token, "da2b01856d18aa5a3a72a0cb76b598bd7aefc77ed6d66b2830006269a502cbc2", (err, decoded) => {
             if (err) {
                 return res.status(401).json({ message: 'Token expired or invalid' });
             }
