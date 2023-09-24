@@ -7,7 +7,18 @@ With SingRetrieve, the average citizen can save time looking for files and keyin
 1. Head over to http://singretrieve-bucket.s3-website-ap-southeast-2.amazonaws.com/login
 2. Click on the Singpass QR code to simulate logging in
 3. Check out the various features
+4. In case the deployed version fails:
+```
+git clone https://github.com/fish-r/singRetrieve.git
 
+# cd to /backend
+npm install
+node app.js
+
+# cd to /frontend
+npm install
+npm start 
+```
 
 ## Problem Statement
 
@@ -46,6 +57,9 @@ Link to video demo:
 
 ## Additional Notes
 Here are some additional notes and reflections
+- Frontend is running on ReactJs deployed on AWS S3
+- Backend is running on ExpressJs deployed on AWS EC2
+- 
 ### Areas for improvement
 - Signing into the app is currently simulated (though the logic for the backend has been made)
 - In requesting for information module, the returned information is not formatted correctly
