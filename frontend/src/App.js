@@ -13,6 +13,7 @@ import Authorise from "./Components/Authorise";
 import RouteGuard from "./utils/RouteGuard";
 import RequestSuccess from "./Components/RequestSuccess";
 import RequestDocument from "./Components/RequestDocument";
+import UploadDocument from "./Components/UploadDocument";
 
 function App() {
   return (
@@ -78,6 +79,16 @@ function App() {
               </RouteGuard>
             }
           />
+
+          <Route
+            path="/home/upload-document"
+            element={
+              <RouteGuard>
+                <UploadDocument />
+              </RouteGuard>
+            }
+          />
+
         </Routes>
 
         {/* footer */}

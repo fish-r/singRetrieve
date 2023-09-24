@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 const RequestDocument = () => {
 
     const navigate = useNavigate();
+
+    // simulate api call to get available documents
     const cards = [
         {
             title: "Marriage Certificate",
